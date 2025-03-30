@@ -16,9 +16,7 @@ A simple utility library to manage a singleton connection to a Redis server usin
 ## Installation
 
 ```bash
-npm install your-package-name redis
-# or
-yarn add your-package-name redis
+npm install redis-singleton
 ```
 
 ### Note: 
