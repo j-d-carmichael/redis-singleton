@@ -1,19 +1,25 @@
 {
   "name": "redis-singleton",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "A simple singleton connector for the Node.js redis (v4+) package.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "clean": "rm -rf dist coverage",
     "build": "npm run clean && tsc",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
     "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
     "redis": "^4.7.0"
   },
   "devDependencies": {
+    "@types/jest": "^29.5.14",
     "@types/node": "^22.13.14",
+    "jest": "^29.7.0",
+    "redis": "^4.7.0",
+    "ts-jest": "^29.3.0",
     "typescript": "^5.4.3"
   },
   "files": [

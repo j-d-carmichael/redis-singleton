@@ -1,6 +1,6 @@
 # Redis Singleton Manager
 
-[![npm version](https://badge.fury.io/js/your-package-name.svg)](https://badge.fury.io/js/your-package-name) <!-- Replace your-package-name -->
+[![npm version](https://badge.fury.io/js/redis-singleton.svg)](https://badge.fury.io/js/redis-singleton)
 
 A simple utility library to manage a singleton connection to a Redis server using the [`redis`](https://github.com/redis/node-redis) library (v4+). It ensures only one connection is established and provides easy access to the client instance.
 
@@ -34,8 +34,7 @@ This library maintains a single, shared Redis client instance.
 Import the connect function and call it with your Redis connection options or a Redis URL string. It returns a promise that resolves when the connection is ready. It's best practice to call this early in your application's startup sequence.
 
 ```typescript
-// src/redis-init.ts (or similar startup file)
-import { connect } from 'your-package-name'; // Replace your-package-name
+import { connect } from 'redis-singleton';
 
 let isRedisConnected = false;
 
@@ -77,7 +76,6 @@ export async function initializeRedis() {
 // await initializeRedis();
 ```
 
-
 - connect() is idempotent. If called when already connected, it resolves immediately.
 - If called while a connection attempt is already in progress, it returns the promise associated with that attempt, preventing multiple connection races.
 
@@ -86,7 +84,7 @@ Import the getClient function. Call it after you are sure the connect() promise 
 
 ```typescript
 // src/services/my-service.ts
-import { getClient } from 'your-package-name'; // Replace your-package-name
+import { getClient } from 'redis-singleton'; // Replace redis-singleton
 import { RedisClientType } from 'redis'; // Optional: for explicit typing
 
 // Assume initializeRedis() from the previous step has been called and awaited successfully.
@@ -132,7 +130,7 @@ Import the disconnect function. Call it to gracefully close the connection, typi
 
 ```typescript
 // src/server.ts (or your main application file)
-import { disconnect } from 'your-package-name'; // Replace your-package-name
+import { disconnect } from 'redis-singleton'; // Replace redis-singleton
 import { initializeRedis } from './redis-init';
 // ... other imports (e.g., Express, http server)
 
@@ -214,3 +212,7 @@ startServer();
 
 Promise<void> - Resolves upon successful disconnection or if already disconnected. Rejects if an error occurs during the client.quit() operation.
 
+## Development 
+- Nothing special, make sure the tests that are there keep on working.
+- The tests do require a local redis connection without auth to pass
+  - If you would like to expand or improve this please feel free, but I left the tests running against a real instance for the surest way to test this package... as it is a redis db connection wrapper :)
