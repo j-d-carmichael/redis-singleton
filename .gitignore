@@ -1,6 +1,9 @@
 ### Node template
 
-#editor settings
+# built files
+dist
+
+# editor settings
 .editorconfig
 .idea
 
