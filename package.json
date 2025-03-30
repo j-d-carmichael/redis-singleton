@@ -1,0 +1,45 @@
+{
+  "name": "redis-singleton",
+  "version": "1.0.0",
+  "description": "A simple singleton connector for the Node.js redis (v4+) package.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "clean": "rm -rf dist coverage",
+    "build": "npm run clean && tsc",
+    "prepublishOnly": "npm run test && npm run build"
+  },
+  "dependencies": {
+    "redis": "^4.7.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.14",
+    "typescript": "^5.4.3"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "keywords": [
+    "redis",
+    "connect",
+    "connection",
+    "client",
+    "singleton",
+    "database",
+    "cache"
+  ],
+  "author": "John Carmichael",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/j-d-carmichael/redis-singleton.git",
+  },
+  "bugs": {
+    "url": "https://github.com/j-d-carmichael/redis-singleton/issues"
+  },
+  "homepage": "https://github.com/j-d-carmichael/redis-singleton#readme",
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

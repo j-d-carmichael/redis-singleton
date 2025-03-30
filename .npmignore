@@ -1,0 +1,7 @@
+#editor settings
+.idea
+.editorconfig
+
+# non-compiled source code
+src
+
